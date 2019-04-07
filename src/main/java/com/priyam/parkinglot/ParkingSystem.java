@@ -2,6 +2,8 @@ package com.priyam.parkinglot;
 
 import com.priyam.parkinglot.model.ParkingLot;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 /**
@@ -9,11 +11,26 @@ import java.util.Scanner;
  */
 public class ParkingSystem {
 
-    public static void main(String...strings) {
+    public static void main(String...strings) throws FileNotFoundException {
+
+        ParkingSystem parkingSystem = new ParkingSystem();
 
         Scanner scanner = new Scanner(System.in);
+
+        if(strings != null && strings.length > 0)  {
+            File file = new File(strings[0]);
+            scanner = new Scanner(file);
+        }
+
+        parkingSystem.initializeParkingSystem(scanner);
+
+    }
+
+    public ParkingLot initializeParkingSystem(Scanner scanner) {
+
+
         ParkingLot parkinglot = null;
-        while(true != false) {
+        while(scanner.hasNext()) {
             String command = scanner.next();
             switch(command) {
                 case "exit":
@@ -64,8 +81,9 @@ public class ParkingSystem {
                     System.out.println("Invalid command");
                     break;
             }
-        }
 
+        }
+        return parkinglot;
 
     }
 

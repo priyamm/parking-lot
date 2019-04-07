@@ -4,18 +4,21 @@ import com.priyam.parkinglot.model.ParkingLot;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+
 /**
  * @author prigupta8
  */
 public class ParkingSystemTest {
 
-    private static final Integer SIZE = 6;
+    private static final Integer LOT_SIZE = 6;
 
     @Test
     public void test_parkingLotSetup() {
 
-        ParkingLot parkingLot  = new ParkingLot(SIZE);
-        Assert.assertTrue(parkingLot.getSlots().length == SIZE);
+        ParkingLot parkingLot  = new ParkingLot(LOT_SIZE);
+        Assert.assertTrue(parkingLot.getSlots().length == LOT_SIZE);
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -25,7 +28,7 @@ public class ParkingSystemTest {
 
     @Test
     public void test_parkingVehice() {
-        ParkingLot parkingLot  = new ParkingLot(SIZE);
+        ParkingLot parkingLot  = new ParkingLot(LOT_SIZE);
         String whiteCarSlotId = parkingLot.parkCar("KA-01-HH-1234", "White");
         String blueCarSlotId = parkingLot.parkCar("KA-02-HH-1234", "Blue");
         Assert.assertTrue(whiteCarSlotId.equals("Allocated slot number: 1"));
@@ -108,4 +111,18 @@ public class ParkingSystemTest {
         parkingLot.parkCar("KA-03-HH-1234", "White");
         Assert.assertEquals(parkingLot.getSlotNumberByCarRegistrationNumber("KA-04-HH-1234"), "Not found");
     }
+
+//    @Test
+//    public void test_Input() {
+//        ParkingSystem parkingSystem = new ParkingSystem();
+//
+//        String input = "create_parking_lot 6";
+//        InputStream in = new ByteArrayInputStream(input.getBytes());
+//        System.setIn(in);
+//
+//        ParkingLot parkingLot = parkingSystem.initializeParkingSystem();
+//
+//        Assert.assertNotNull(parkingLot);
+//        Assert.assertEquals(6, parkingLot.getSlots().length);
+//    }
 }

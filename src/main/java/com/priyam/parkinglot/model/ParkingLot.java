@@ -55,6 +55,11 @@ public class ParkingLot {
         return "Sorry, parking lot is full";
     }
 
+    /**
+     * @param slotId
+     * @return String
+     * This method is used to release the slot given to the Car.
+     */
     public String leaveCar(Integer slotId) {
         if(!slots[slotId - 1].getFree()) {
             slots[slotId - 1].removeVehicle();
@@ -63,16 +68,26 @@ public class ParkingLot {
         return "Already Free";
     }
 
+    /**
+     * @return String
+     * This method is used to return the current status of the parking lot.
+     */
     public String getParkingLotStatus() {
-        String status = "Slot No. Registration No Colour\n";
+        String status = "Slot No.    Registration No    Colour";
         for(int i = 0; i < size ; i++) {
-            if(!slots[i - 1].getFree()) {
-                status += (i + 1) + " " + slots[i].getCar().getRegistrationNumber() + " " + slots[i].getCar().getColor() + "\n";
+            if(!slots[i].getFree()) {
+                status += "\n" + (i + 1) + "           " + slots[i].getCar().getRegistrationNumber() + "      " + slots[i].getCar().getColor();
             }
         }
         return status;
     }
 
+
+    /**
+     * @param color
+     * @return String
+     * This method is used to fetch the Registration number of the cars by registration number.
+     */
     public String getRegistrationNumbersByCarColor(String color) {
         String registrationNumbers = "";
         for(int i = 0 ; i < size ; i++) {
@@ -85,6 +100,11 @@ public class ParkingLot {
         return registrationNumbers.charAt(registrationNumbers.length() - 1) == ' ' ? registrationNumbers.substring(0, registrationNumbers.length() - 2) : registrationNumbers;
     }
 
+    /**
+     * @param color
+     * @return String
+     * This method is used to get the slot number of the cars by using the filter of color.
+     */
     public String getSlotNumbersByCarColor(String color) {
         String slotNumbers = "";
         for(int i = 0 ; i < size ; i++) {
@@ -97,6 +117,12 @@ public class ParkingLot {
         return slotNumbers.charAt(slotNumbers.length() - 1) == ' ' ? slotNumbers.substring(0, slotNumbers.length() - 2) : slotNumbers;
     }
 
+
+    /**
+     * @param registrationNumber
+     * @return String
+     * This method is used to fetch the Slot number of the car by the registration number.
+     */
     public String getSlotNumberByCarRegistrationNumber(String registrationNumber) {
         for(int i = 0 ; i < size ; i++) {
             if(!slots[i].getFree() && slots[i].getCar().getRegistrationNumber().equals(registrationNumber))
