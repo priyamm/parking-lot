@@ -24,6 +24,8 @@ public class ParkingLot {
     }
 
     public ParkingLot(Integer size) {
+        if(size < 0)
+            throw new IllegalArgumentException("Size allotted cannot be negative");
         this.size = size;
         this.slots = new ParkingSlot[this.size];
 
