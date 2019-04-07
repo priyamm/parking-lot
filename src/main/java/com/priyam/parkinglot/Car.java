@@ -1,4 +1,4 @@
-package com.priyam.parkinglot.model;
+package com.priyam.parkinglot;
 
 /**
  * @author prigupta8

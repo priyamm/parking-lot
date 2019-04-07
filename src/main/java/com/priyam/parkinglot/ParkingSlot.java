@@ -1,6 +1,6 @@
-package com.priyam.parkinglot.model;
+package com.priyam.parkinglot;
 
-import com.priyam.parkinglot.model.Car;
+import com.priyam.parkinglot.Car;
 
 /**
  * @author prigupta8
