@@ -11,6 +11,7 @@ public class ParkingSlot {
 
     public ParkingSlot(Integer slotId) {
         this.slotId = slotId;
+        this.isFree = Boolean.TRUE;
     }
 
     public Integer getSlotId() {
@@ -37,12 +38,12 @@ public class ParkingSlot {
         this.car = car;
     }
 
-    public Boolean assignVehice(Car car) {
+    public void assignVehice(Car car) {
         this.car = car;
         isFree = Boolean.FALSE;
     }
 
-    public boolean removeVehicle() {
+    public void removeVehicle() {
         this.car = car;
         this.isFree = true;
     }
