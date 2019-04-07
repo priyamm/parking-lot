@@ -4,6 +4,9 @@ import com.priyam.parkinglot.model.ParkingLot;
 
 import java.util.Scanner;
 
+/**
+ * @author prigupta8
+ */
 public class ParkingSystem {
 
     public static void main(String...strings) {
@@ -24,19 +27,19 @@ public class ParkingSystem {
                     if(parkinglot == null)
                         System.out.println("proivde the size of the parkin lot first");
                     else
-                        System.out.println(parkinglot.parkVehicle(scanner.next(), scanner.next()));;
+                        System.out.println(parkinglot.parkCar(scanner.next(), scanner.next()));;
                     break;
                 case "leave":
                     if(parkinglot == null)
                         System.out.println("proivde the size of the parkin lot first");
                     else
-                        System.out.println(parkinglot.leaveVehice(scanner.nextInt()));
+                        System.out.println(parkinglot.leaveCar(scanner.nextInt()));
                     break;
                 case "status":
                     if(parkinglot == null)
                         System.out.println("proivde the size of the parkin lot first");
                     else
-                        System.out.println(parkinglot.getStatus());
+                        System.out.println(parkinglot.getParkingLotStatus());
                     break;
                 case "registration_numbers_for_cars_with_colour":
                     if(parkinglot == null)

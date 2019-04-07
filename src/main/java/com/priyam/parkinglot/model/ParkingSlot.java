@@ -1,5 +1,7 @@
 package com.priyam.parkinglot.model;
 
+import com.priyam.parkinglot.model.Car;
+
 /**
  * @author prigupta8
  */
